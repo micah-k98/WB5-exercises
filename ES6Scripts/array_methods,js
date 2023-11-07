@@ -22,4 +22,21 @@ function display(itemList)
     console.log(itemList);
 }
 
+itemList.sort();
 itemList.forEach(display);
+
+
+
+function getPricePerItem(cart)
+{
+    return +(cart.price * cart.quantity).toFixed(2);
+}
+
+function getTotalCost(totalCost, pricePerItem)
+{
+    return pricePerItem + totalCost;
+}
+
+const pricePerItem = cart.map(getPricePerItem);
+const totalCost = pricePerItem.reduce(getTotalCost, 0)
+console.log(`The total cost of everything in the cart: $ ${totalCost}`);
